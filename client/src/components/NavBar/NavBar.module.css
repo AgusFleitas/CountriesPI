@@ -1,0 +1,11 @@
+.fullWrapper {
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+}
+
+.buttonsWrapper {
+    width: 30vw;
+    display: flex;
+    justify-content: space-around;
+}
