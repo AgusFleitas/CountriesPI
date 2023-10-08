@@ -1,14 +1,19 @@
-const { createActivityDB } = require("../controllers/activityController")
+const { activitiesList, createActivityDB } = require("../controllers/activityController")
 
-const getActivities = (req, res) => {
-    res.status(200).send("Esta es la lista de actividades")
+const getActivities = async (req, res) => {
+    try {
+        const response = await activitiesList()
+        return res.status(200).json(response);
+    } catch (error) {
+        return res.status(400).json({error: error.message})
+    }
 }
 
 const createActivityHandler = async (req, res) => {
-    const {name, dificulty, duration, season} = req.body
+    const {name, dificulty, duration, season, countries} = req.body
 
     try {
-        const response = await createActivityDB(name, dificulty, duration, season)
+        const response = await createActivityDB(name, dificulty, duration, season, countries)
         return res.status(200).json(response)
     } catch (error) {
         return res.status(400).json({error: error.message})

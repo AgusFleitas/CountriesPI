@@ -1,26 +1,38 @@
-const { Country } = require("../db");
-const axios = require("axios");
-
-const infoCleaner = (arr) => {
-  return arr.map((country) => {
-    return {
-      name: country.name.common,
-      flag: country.flags.png,
-      continent: country.continents[0],
-      capital: country.capital ? country.capital[0] : "Unknown",
-      subregion: country.subregion ? country.subregion[0] : "Unknown",
-      area: country.area,
-      population: country.population,
-    };
-  });
-};
+const { Country, Activity } = require("../db");
+const { Op } = require('sequelize');
 
 const getAllCountries = async () => {
-  const countryAPI = (await axios.get("http://localhost:5000/countries")).data
+  const CountriesDB = await Country.findAll();
 
-  const cleanCountry = infoCleaner(countryAPI)
-
-  return cleanCountry
+  return [...CountriesDB]
 };
 
-module.exports = { getAllCountries };
+const getCountryDetail = async (id) => {
+  const found = await Country.findByPk(id, {
+    include: [
+      {
+        model: Activity,
+        attributes: ['id', 'name', 'dificulty', 'duration', 'season'],
+      },
+  ]});
+
+  if (found) {
+    return found
+  } else return "Cannot find any country"
+}
+
+const getCountryQuery = async (name) => {
+  const matches = await Country.findAll({
+    where: {
+      name: { [Op.iLike]: `%${name}%` },
+    },
+
+    include: Activity,
+  });
+
+  if (matches.length >= 1) {
+    return matches
+  } else return "No matches found"
+}
+
+module.exports = { getAllCountries, getCountryDetail, getCountryQuery };
