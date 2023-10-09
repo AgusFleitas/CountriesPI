@@ -1,10 +1,13 @@
 .cardContainer {
   display: flex;
+  width: 15rem;
   flex-direction: column;
-  background-color: #95dada;
+  justify-content: center;
+  align-items: center;
+  background-color: #afd4d4;
   border: 0.0625rem solid grey;
   border-radius: 0.3125rem;
-  padding: 1.5625rem;
+  padding: .9375rem;
   cursor: pointer;
   -moz-osx-font-smoothing: grayscale;
   backface-visibility: hidden;
@@ -14,4 +17,8 @@
 
 .cardContainer:hover {
   transform: scale(1.05);
+}
+
+img {
+  width: 12.5rem;
 }

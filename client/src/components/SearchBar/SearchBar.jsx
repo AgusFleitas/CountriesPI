@@ -1,10 +1,12 @@
 import style from "./SearchBar.module.css";
 
-const SearchBar = () => {
+const SearchBar = ({handleChange, handleSubmit}) => {
     return (
         <div className={style.wrapper}>
+            <form onChange={handleChange}>
             <input type="search" placeholder="Search Country"></input>
-            <button>Search</button>
+            <button type="submit" onClick={handleSubmit}>Search</button>
+            </form>
         </div>
     )
 };

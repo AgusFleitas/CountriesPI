@@ -1,9 +1,18 @@
-const Cards = () => {
-    return (
-        <>
-         <p>Componente CARDS</p>
-        </>
-    )
-}
+import style from "./Cards.module.css";
+import Card from "../Card/Card";
 
-export default Cards
+const Cards = ({ allCountries }) => {
+  const countriesList = allCountries;
+
+  return (
+    <>
+      <div className={style.CardsList}>
+        {countriesList?.map((country) => (
+          <Card country={country} />
+        ))}
+      </div>
+    </>
+  );
+};
+
+export default Cards;
