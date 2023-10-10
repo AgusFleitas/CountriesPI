@@ -1,7 +1,28 @@
+import { Link } from "react-router-dom";
+
+import style from "./Landing.module.css";
+import landingVideo from "../../video/countrybackground.mp4";
+
 const Landing = () => {
   return (
     <>
-      <p>Esto es el componente LANDING</p>
+      <div className={style.wrapper}>
+        <div className={style.buttonwrapper}>
+          <h3>Explore the Earth!</h3>
+          <Link to={"/home"}>
+            <button className={style.startButton}>START</button>
+          </Link>
+        </div>
+        <div className={style.videoWrapper}>
+          <video
+            src={landingVideo}
+            autoPlay
+            muted
+            loop
+            className={style.bgVideo}
+          />
+        </div>
+      </div>
     </>
   );
 };
