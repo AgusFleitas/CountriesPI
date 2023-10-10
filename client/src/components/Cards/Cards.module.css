@@ -5,3 +5,10 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 1.25rem;
 }
+
+.Pagination {
+    display: flex;
+    column-gap: .625rem;
+    justify-content: center;
+    align-items: center;
+}

@@ -17,3 +17,16 @@ body {
     align-items: center; 
     flex-direction: column;
 }
+
+.Filters {
+    display: flex;
+    padding: 15px;
+}
+
+.Filters button {
+    margin: .3125rem;
+}
+
+.Filters select {
+    margin: .3125rem;
+}
