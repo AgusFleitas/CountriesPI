@@ -11,6 +11,7 @@ import {
   getActivities,
 } from "../../redux/actions";
 
+import SearchBar from "../../components/SearchBar/SearchBar";
 import NavBar from "../../components/Navbar/Navbar";
 import Cards from "../../components/Cards/Cards";
 
@@ -42,10 +43,11 @@ const Home = () => {
     dispatch(getCountryByName(searchString));
   }
 
-  // Cuando se monta el componente, se despacha una action solicitando todos los Countries.
+  // Cuando se monta el componente, se despacha una action solicitando todos los Countries y Activities.
 
   useEffect(() => {
     dispatch(getCountries());
+    dispatch(getActivities());
   }, [dispatch]);
 
   // Cuando se monta el componente seteamos un estado adicional y luego se 'splitean' los items mostrados para que solo sean 10.
@@ -54,10 +56,6 @@ const Home = () => {
     setFullCountries(allCountries);
     setItems(allCountries.slice(0, perPage));
   }, [allCountries]);
-
-  useEffect(() => {
-    dispatch(getActivities());
-  }, [dispatch]);
 
   // Handler para RETROCEDER de página.
 
@@ -104,7 +102,6 @@ const Home = () => {
   }
 
   function handleActivityFilter(event) {
-    console.log(event);
     dispatch(filterByActivity(event.target.value));
   }
 
@@ -114,7 +111,8 @@ const Home = () => {
 
   return (
     <div className={style.wrapper}>
-      <NavBar handleChange={handleChange} handleSubmit={handleSubmit} />
+      <NavBar />
+      <SearchBar handleChange={handleChange} handleSubmit={handleSubmit} />
       <div className={style.Filters}>
         <select onChange={handleFilter}>
           <option hidden defaultValue>

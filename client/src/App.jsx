@@ -15,7 +15,6 @@ const dispatch = useDispatch();
 
 function createActHandler (activityDetail) {
   dispatch(addActivity(activityDetail))
-  console.log("ActivityDetail que dispara el dispatch" + activityDetail);
 }
 
   return (
