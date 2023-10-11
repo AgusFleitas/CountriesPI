@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { getCountries } from "../../redux/actions";
+import { getCountries, addActivity } from "../../redux/actions";
 
+import NavBar from "../../components/Navbar/Navbar";
 import validate from "../../Helpers/Validation";
 import tourist_activities from "../../Helpers/TouristActivities";
 
-const Create = ({ createActivity }) => {
+const Create = () => {
   const dispatch = useDispatch();
   const allCountries = useSelector((state) => state.countriesCopy);
 
@@ -48,7 +49,9 @@ const Create = ({ createActivity }) => {
     });
   }
 
-  const noErrors = (Object.values(input).every((value) => value !== "") && input.countries.length >= 1);
+  const noErrors =
+    Object.values(input).every((value) => value !== "") &&
+    input.countries.length >= 1;
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -64,11 +67,13 @@ const Create = ({ createActivity }) => {
     });
   }
 
+  function createActivity(activityDetail) {
+    dispatch(addActivity(activityDetail));
+  }
+
   return (
     <>
-      <Link to='/home'>
-        <button>Home</button>
-      </Link>
+      <NavBar />
       <form onSubmit={handleSubmit}>
         <div>
           <label>Name: </label>

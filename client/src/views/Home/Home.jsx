@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getCountries,
-  getCountryByName,
   filterByContinent,
   filterByActivity,
   sortCountries,
@@ -11,39 +10,27 @@ import {
   getActivities,
 } from "../../redux/actions";
 
-import SearchBar from "../../components/SearchBar/SearchBar";
 import NavBar from "../../components/Navbar/Navbar";
 import Cards from "../../components/Cards/Cards";
 
 import style from "./Home.module.css";
 
 const Home = () => {
+
+  // Constantes.
+
   const dispatch = useDispatch();
   const allCountries = useSelector((state) => state.allCountries);
   const activities = useSelector((state) => state.activities);
-
   const perPage = 10;
 
   // Estados Locales.
 
-  const [searchString, setSearchString] = useState("");
   const [fullCountries, setFullCountries] = useState(allCountries);
   const [items, setItems] = useState([...allCountries]);
   const [currentPage, setCurrentPage] = useState(0);
 
-  // Handlers para la SearchBar
-
-  function handleChange(event) {
-    event.preventDefault();
-    setSearchString(event.target.value);
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    dispatch(getCountryByName(searchString));
-  }
-
-  // Cuando se monta el componente, se despacha una action solicitando todos los Countries y Activities.
+  // Cuando se monta el componente, se despacha una action solicitando todos los Countries y las Activities.
 
   useEffect(() => {
     dispatch(getCountries());
@@ -112,7 +99,6 @@ const Home = () => {
   return (
     <div className={style.wrapper}>
       <NavBar />
-      <SearchBar handleChange={handleChange} handleSubmit={handleSubmit} />
       <div className={style.Filters}>
         <select onChange={handleFilter}>
           <option hidden defaultValue>
