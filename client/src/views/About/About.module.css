@@ -1,8 +1,66 @@
-.photo {
-    width: 15.625rem;
+.about {
+  width: 100vw;
+  height: 100dvh;
+  padding: 78px 0px;
+  background-color: #191919;
 }
 
-.links img {
-    margin: 10px;
-    width: 4.0625rem;
+.main img {
+  height: auto;
+  width: 420px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.aboutText {
+  width: 550px;
+}
+
+.main {
+  width: 1130px;
+  max-width: 95%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.aboutText h1 {
+  color: white;
+  font-size: 80px;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+
+.aboutText h5 {
+  color: white;
+  font-size: 25px;
+  text-transform: capitalize;
+  margin-bottom: 25px;
+  letter-spacing: 2px;
+}
+
+span {
+  color: #707070;
+}
+
+.aboutText p {
+  color: #c7c7c7;
+  letter-spacing: 1px;
+  line-height: 28px;
+  font-size: 18px;
+  margin-bottom: 45px;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  grid-gap: 20px;
+}
+
+.social img {
+  width: 50px;
+  box-shadow:none;
+}
+.social img:hover {
+  transform: scale(1.1);
 }
