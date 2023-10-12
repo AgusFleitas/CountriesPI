@@ -8,7 +8,8 @@
     height: 400px;
     top: 30%;
     left: 15%;
-    border: 2px solid rgb(105, 158, 207);
+    border: 2px solid #949494;
+    box-shadow: 0 0 20px #ffffff50;
     border-radius: 10%;
 }
 
@@ -18,7 +19,7 @@
     padding: 12.5px 30px;
     border: 0;
     border-radius: 100px;
-    background-color: #7ac7fa;
+    background-color: #333;
     color: #ffffff;
     font-weight: Bold;
     transition: all 0.5s;
@@ -26,8 +27,8 @@
   }
   
   .startButton:hover {
-    background-color: #abdafa;
-    box-shadow: 0 0 20px #9dd8ff50;
+    background-color: #949494;
+    box-shadow: 0 0 20px #ffffff50;
     transform: scale(1.1);
   }
   
@@ -56,3 +57,6 @@
     object-fit: cover;
   }
   
+  video {
+    filter: grayscale(100%) contrast(130%) brightness(40%); 
+  }

@@ -1,32 +1,92 @@
 body {
-    margin: 0;
-    padding: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background: linear-gradient(
-        to left,
-        rgba(7, 27, 82, 1) 0%,
-        rgba(0, 128, 128, 1) 100%
-    );
-    text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
 }
 
 .wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.wrapper input {
+  font-family: "Teko", sans-serif;
+  font-size: large;
+  font-weight: 500;
+  font-size: 0.8vw;
+  color: #fff;
+  background-color: rgb(28, 28, 30);
+  box-shadow: 0 0 0.4vw rgba(0, 0, 0, 0.5), 0 0 0 0.15vw transparent;
+  border-radius: 0.4vw;
+  border: none;
+  outline: none;
+  padding: 0.4vw;
+  max-width: 190px;
+  transition: 0.4s;
+}
+
+.wrapper input:hover {
+  box-shadow: 0 0 0 0.15vw rgba(135, 207, 235, 0.186);
+}
+
+.wrapper input:focus {
+  box-shadow: 0 0 0 0.15vw rgb(199, 199, 199);
+}
+
+.Filterswrapper {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #707070;
 }
 
 .Filters {
-    display: flex;
-    padding: 15px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  grid-gap: 0.625rem;
 }
 
-.Filters button {
-    margin: .3125rem;
+.searchBarWrapper {
+  margin-left: 12.5rem;
+  display: flex;
+  justify-content: center;
 }
 
-.Filters select {
-    margin: .3125rem;
+.sort {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 0.625rem;
 }
+
+.Filterswrapper button {
+  font-family: "Teko", sans-serif;
+  font-size: large;
+  background-color: #333;
+  color: #c7c7c7;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.Filterswrapper button:hover {
+  transform: scale(1.05);
+  background: #c7c7c7;
+  color: #333;
+}
+
+.Filterswrapper p {
+  font-weight: 500;
+}
+

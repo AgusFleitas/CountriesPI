@@ -10,13 +10,12 @@ import {
   getActivities,
 } from "../../redux/actions";
 
-import NavBar from "../../components/Navbar/Navbar";
 import Cards from "../../components/Cards/Cards";
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 import style from "./Home.module.css";
 
 const Home = () => {
-
   // Constantes.
 
   const dispatch = useDispatch();
@@ -98,59 +97,68 @@ const Home = () => {
 
   return (
     <div className={style.wrapper}>
-      <NavBar />
-      <div className={style.Filters}>
-        <select onChange={handleFilter}>
-          <option hidden defaultValue>
-            Continents
-          </option>
-          {[
-            "North America",
-            "South America",
-            "Europe",
-            "Asia",
-            "Africa",
-            "Oceania",
-            "Antarctica",
-          ].map((continent, index) => (
-            <option value={continent} key={index}>
-              {continent}
-            </option>
-          ))}
-        </select>
-        <select onChange={handleSort}>
-          <option hidden defaultValue>
-            Sort A-Z
-          </option>
-          {[
-            "Sort A to Z",
-            "Sort Z to A",
-            "By population: Lowest First",
-            "By population: Highest First",
-          ].map((order, index) => (
-            <option value={order} key={index}>
-              {order}
-            </option>
-          ))}
-        </select>
-        {Array.isArray(activities) && activities.length > 0 ? (
-          <select onChange={handleActivityFilter}>
+      <div className={style.Filterswrapper}>
+        <div className={style.Filters}>
+          <p>Filter by: </p>
+          <select onChange={handleFilter}>
             <option hidden defaultValue>
-              Activities
+              Continents
             </option>
-            {activities.map((activity) => (
-              <option value={activity.name} key={activity.id}>
-                {activity.name}
+            {[
+              "North America",
+              "South America",
+              "Europe",
+              "Asia",
+              "Africa",
+              "Oceania",
+              "Antarctica",
+            ].map((continent, index) => (
+              <option value={continent} key={index}>
+                {continent}
               </option>
             ))}
           </select>
-        ) : (
-          <select>
-            <option disabled>No activities yet</option>
+          {Array.isArray(activities) && activities.length > 0 ? (
+            <select onChange={handleActivityFilter}>
+              <option hidden defaultValue>
+                Activities
+              </option>
+              {activities.map((activity) => (
+                <option value={activity.name} key={activity.id}>
+                  {activity.name}
+                </option>
+              ))}
+            </select>
+          ) : (
+            <select>
+              <option disabled>No activities yet</option>
+            </select>
+          )}
+        </div>
+        <div className={style.sort}>
+          <p>Sort: </p>
+          <select onChange={handleSort}>
+            <option hidden defaultValue>
+              Sort
+            </option>
+            {[
+              "Sort A to Z",
+              "Sort Z to A",
+              "By population: Lowest First",
+              "By population: Highest First",
+            ].map((order, index) => (
+              <option value={order} key={index}>
+                {order}
+              </option>
+            ))}
           </select>
-        )}
+        </div>
         <button onClick={handleReset}>Clear Filters</button>
+        <div className={style.searchBarWrapper}>
+          <SearchBar />
+        </div>
       </div>
+      <div className={style.cardWrapper}></div>
 
       {allCountries.length > 0 && (
         <Cards

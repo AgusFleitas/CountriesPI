@@ -1,14 +1,40 @@
 .CardsList {
-    width: 85vw;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 1.25rem;
+  margin-top: 15px;
+  justify-self: center;
+  width: 85vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 1.25rem;
 }
 
 .Pagination {
-    display: flex;
-    column-gap: .625rem;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  column-gap: 0.625rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.Pagination button {
+  font-family: "Teko", sans-serif;
+  font-size: large;
+  background-color: #333;
+  color: #c7c7c7;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.Pagination button:hover {
+  transform: scale(1.05);
+  background: #c7c7c7;
+  color: #333;
+}
+
+.currentPage {
+  font-weight: 600;
+  color: #c7c7c7;
+  font-size: 30px;
 }

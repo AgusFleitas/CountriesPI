@@ -1,11 +1,48 @@
 .fullWrapper {
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    background-color: #c7c7c7;
 }
 
 .buttonsWrapper {
     width: 30vw;
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
+
+.buttonsWrapper  button {
+    font-family: "Teko", sans-serif;
+    font-size: large;
+    background-color: #333;
+    color: #c7c7c7;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .buttonsWrapper  button:hover {
+    transform: scale(1.05);
+    background: #707070;
+    color: #c7c7c7;
+  }
+
+  .logoutButton {
+    font-family: "Teko", sans-serif;
+    font-size: large;
+    background-color: #333;
+    color: #c7c7c7;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .logoutButton:hover {
+    transform: scale(1.05);
+    background: #a83838;
+    color: #c7c7c7;
+  }

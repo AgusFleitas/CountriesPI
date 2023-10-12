@@ -10,7 +10,7 @@ import {
   SORT_POPULATION,
 } from "../actions/action-types";
 
-let initialState = { allCountries: [], countriesCopy: [], activities: [] };
+let initialState = { allCountries: [], countriesCopy: [], filteredCountries: [], activities: [] };
 
 function rootReducer(state = initialState, { type, payload }) {
   switch (type) {
@@ -19,12 +19,16 @@ function rootReducer(state = initialState, { type, payload }) {
         ...state,
         allCountries: payload,
         countriesCopy: payload,
+        filteredCountries: payload,
       };
 
     case GET_COUNTRY_BY_NAME:
+      const allCountriesCopy = payload;
+
       return {
         ...state,
-        allCountries: payload,
+        allCountries: allCountriesCopy,
+        countriesCopy: allCountriesCopy,
       };
 
     case GET_ACTIVITIES:

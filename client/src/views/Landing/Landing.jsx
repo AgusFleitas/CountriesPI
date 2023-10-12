@@ -8,6 +8,7 @@ const Landing = () => {
     <>
       <div className={style.wrapper}>
         <div className={style.buttonwrapper}>
+          <h2>Welcome</h2>
           <h3>Explore the Globe!</h3>
           <Link to={"/home"}>
             <button className={style.startButton}>START</button>

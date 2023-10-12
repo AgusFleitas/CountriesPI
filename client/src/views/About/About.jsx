@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 
-import NavBar from "../../components/Navbar/Navbar";
 import myPhoto from "../../image/Photo.jpg";
 import github from "../../image/githubLogo.png";
 import instagram from "../../image/instagramLogo.png";
@@ -11,10 +10,9 @@ import style from "./About.module.css";
 const About = () => {
   return (
     <>
-      <NavBar />
       <h2>More info</h2>
       <div className={style.wrapper}>
-        <img src={myPhoto}></img>
+        <img className={style.photo} src={myPhoto}></img>
         <h4>About me:</h4>
         <p>
           Hi!👋🏻 I'm Agustín Fleitas, born in Argentina and living in Spain since

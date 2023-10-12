@@ -11,7 +11,7 @@ const Cards = ({ items, prevHandler, nextHandler, currentPage }) => {
       </div>
       <div className={style.Pagination}>
         <button onClick={prevHandler}>Prev</button>
-        <h2>{currentPage}</h2>
+        <p className={style.currentPage}>{currentPage}</p>
         <button onClick={nextHandler}>Next</button>
       </div>
     </>
