@@ -32,13 +32,13 @@ const About = () => {
             </p>
             <h5>Follow me on social media!</h5>
             <div className={style.social}>
-              <Link to='https://github.com/AgusFleitas'>
+              <Link to='https://github.com/AgusFleitas' target="_blank">
                 <img src={github} />
               </Link>
-              <Link to='https://www.linkedin.com/in/agustin-fleitas-faes/'>
+              <Link to='https://www.linkedin.com/in/agustin-fleitas-faes/' target="_blank">
                 <img src={linkedIn} />
               </Link>
-              <Link to='https://www.instagram.com/agusvalentine/'>
+              <Link to='https://www.instagram.com/agusvalentine/' target="_blank">
                 <img src={instagram} />
               </Link>
             </div>

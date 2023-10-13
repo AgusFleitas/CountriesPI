@@ -9,9 +9,14 @@ import tourist_activities from "../../Helpers/TouristActivities";
 import style from "./Create.module.css";
 
 const Create = () => {
+
+  // Constantes.
+
   const dispatch = useDispatch();
   const allCountries = useSelector((state) => state.countriesCopy);
   const sortedCountries = [...allCountries];
+
+  // Orden alfabético para las opciones en el formulario.
 
   sortedCountries.sort((a, b) => {
     const nameA = a.name.toLowerCase();
@@ -25,9 +30,13 @@ const Create = () => {
     return 0;
   });
 
+  // Obtener la lista de países completa.
+
   useEffect(() => {
     dispatch(getCountries());
   }, [dispatch]);
+
+  // Estados locales
 
   const [input, setInput] = useState({
     name: "",
@@ -45,6 +54,8 @@ const Create = () => {
     countries: "",
   });
 
+  // Handler para el seteo de mi estado.
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setInput({
@@ -53,6 +64,8 @@ const Create = () => {
     });
     setError(validate({ ...input, [event.target.name]: event.target.value }));
   };
+
+  // Hanlder para el apartado de countries.
 
   function handleAddCountry(event) {
     const { value } = event.target;
@@ -65,11 +78,15 @@ const Create = () => {
     }
   }
 
+  //Hanlder para evitar que el usuario escriba.
+
   function handleKeyDown(event) {
     if (event.key === "Enter" || /^[A-Za-z0-9]$/.test(event.key)) {
       event.preventDefault();
     }
   }
+
+  // Hanlder para limpiar los countries.
 
   function handleClearCountries() {
     setInput({
@@ -77,6 +94,8 @@ const Create = () => {
       countries: [],
     });
   }
+
+  // Hanlder para eliminar el country de forma individual.
 
   function handleRemoveCountry(index) {
     const updatedCountries = [...input.countries];
@@ -88,9 +107,13 @@ const Create = () => {
     });
   }
 
+  // Constante para confirmar que no existan errores.
+
   const noErrors =
     Object.values(input).every((value) => value !== "") &&
     input.countries.length >= 1;
+
+  // Hanlder para el momento del submit.
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -135,6 +158,8 @@ const Create = () => {
       countries: [],
     });
   }
+
+  // Function que despacha la action de creación.
 
   function createActivity(activityDetail) {
     dispatch(addActivity(activityDetail));

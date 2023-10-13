@@ -78,21 +78,26 @@ const Home = () => {
       event.target.value === "Sort Z to A"
     ) {
       dispatch(sortCountries(event.target.value));
+      setCurrentPage(0);
     } else {
       dispatch(sortCountriesByPopulation(event.target.value));
+      setCurrentPage(0);
     }
   }
 
   function handleFilter(event) {
     dispatch(filterByContinent(event.target.value));
+    setCurrentPage(0);
   }
 
   function handleActivityFilter(event) {
     dispatch(filterByActivity(event.target.value));
+    setCurrentPage(0);
   }
 
   function handleReset() {
     dispatch(resetCountries());
+    setCurrentPage(0);
   }
 
   return (
